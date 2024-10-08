@@ -1,0 +1,14 @@
+---
+- name: Configure and verify Red Hat Satellite settings
+  hosts: azure
+  become: true
+
+  roles:
+    - role: redhat.satellite_operations.installer
+      vars:
+          satellite_installer_scenario: satellite
+          satellite_installer_options:
+            - '--foreman-initial-organization "{{ satellite_organization }}"'
+            - '--foreman-initial-location "{{ satellite_location }}"'
+            - '--foreman-initial-admin-username "{{ satellite_username }}"'
+            - '--foreman-initial-admin-password "{{ satellite_password }}"'
