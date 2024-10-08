@@ -6,7 +6,7 @@
   tasks:
     - name: Create content view
       redhat.satellite.content_view:
-        name: "Ansible Automated Content View"
+        name: "{{ content_view_name }}"
         username: "{{ satellite_username }}"
         password: "{{ satellite_password }}"
         server_url: "{{ item }}"

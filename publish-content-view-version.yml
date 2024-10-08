@@ -6,7 +6,7 @@
   tasks:
     - name: Publish content view version {{ content_view_version }}
       redhat.satellite.content_view_version:
-        content_view: "Ansible Automated Content View"
+        content_view: "{{ content_view_name }}"
         username: "{{ satellite_username }}"
         password: "{{ satellite_password }}"
         server_url: "{{ item }}"
