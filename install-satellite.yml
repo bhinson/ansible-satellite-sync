@@ -50,7 +50,7 @@
         name: satellite
         state: present
 
-    - name: Disable firewall
+    - name: Configure firewall
       tags: firewall
       ansible.builtin.service:
         name: firewalld
