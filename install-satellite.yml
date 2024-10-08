@@ -57,13 +57,13 @@
         state: stopped
         enabled: false
 
-    - name: Satellite initial configuration
-      tags: configure
-      ansible.builtin.shell: |
-        satellite-installer --scenario satellite
-        --foreman-initial-organization "ACME"
-        --foreman-initial-location "Azure"
-        --foreman-initial-admin-username admin
-        --foreman-initial-admin-password ch4ng3m3
-      ignore_errors: true
+#    - name: Satellite initial configuration
+#      tags: configure
+#      ansible.builtin.shell: |
+#        satellite-installer --scenario satellite
+#        --foreman-initial-organization "ACME"
+#        --foreman-initial-location "Azure"
+#        --foreman-initial-admin-username admin
+#        --foreman-initial-admin-password ch4ng3m3
+#      ignore_errors: true
 
