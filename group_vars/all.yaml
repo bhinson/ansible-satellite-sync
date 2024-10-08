@@ -1,0 +1,18 @@
+---
+rhsm_org: "1111111"
+rhsm_activation_key: "example-activation-key"
+satellite_username: "admin"
+satellite_password: "password"
+satellite_organization: "Default Organization"
+satellite_urls:
+  - "https://satellite1.example.com/"
+  - "https://satellite2.example.com/"
+  - "https://satellite3.example.com/"
+satellite_repositories:
+  - name: "Red Hat Ansible Automation Platform 2.5 for RHEL 9 x86_64 RPMs"
+    product: "Red Hat Ansible Automation Platform"
+content_view_version: "3.0"
+lifecycle_environments:
+  - "Development Systems"
+  - "QA Systems"
+  - "Production Systems"

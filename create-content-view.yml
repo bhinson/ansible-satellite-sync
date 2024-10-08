@@ -1,0 +1,16 @@
+---
+- name: Create content view
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: Create content view
+      redhat.satellite.content_view:
+        name: "Ansible Automated Content View"
+        username: "{{ satellite_username }}"
+        password: "{{ satellite_password }}"
+        server_url: "{{ item }}"
+        organization: "{{ satellite_organization }}"
+        repositories: "{{ satellite_repositories }}"
+        validate_certs: false
+      loop: "{{ satellite_urls }}"

@@ -1,0 +1,41 @@
+---
+- name: Create lifecycle environments
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: Create production lifecycle environment
+      redhat.satellite.lifecycle_environment:
+        name: "Production Systems"
+        label: "production"
+        prior: "Library"
+        username: "{{ satellite_username }}"
+        password: "{{ satellite_password }}"
+        server_url: "{{ item }}"
+        organization: "{{ satellite_organization }}"
+        validate_certs: false
+      loop: "{{ satellite_urls }}"
+
+    - name: Create development lifecycle environment
+      redhat.satellite.lifecycle_environment:
+        name: "Development Systems"
+        label: "development"
+        prior: "Library"
+        username: "{{ satellite_username }}"
+        password: "{{ satellite_password }}"
+        server_url: "{{ item }}"
+        organization: "{{ satellite_organization }}"
+        validate_certs: false
+      loop: "{{ satellite_urls }}"
+
+    - name: Create QA lifecycle environment
+      redhat.satellite.lifecycle_environment:
+        name: "QA Systems"
+        label: "qa"
+        prior: "Library"
+        username: "{{ satellite_username }}"
+        password: "{{ satellite_password }}"
+        server_url: "{{ item }}"
+        organization: "{{ satellite_organization }}"
+        validate_certs: false
+      loop: "{{ satellite_urls }}"

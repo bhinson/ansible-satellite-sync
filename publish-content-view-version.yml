@@ -1,0 +1,17 @@
+---
+- name: Publish content view version
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: Publish content view version {{ content_view_version }}
+      redhat.satellite.content_view_version:
+        content_view: "Ansible Automated Content View"
+        username: "{{ satellite_username }}"
+        password: "{{ satellite_password }}"
+        server_url: "{{ item }}"
+        organization: "{{ satellite_organization }}"
+        lifecycle_environments: "{{ lifecycle_environments }}"
+        version: "{{ content_view_version }}"
+        validate_certs: false
+      loop: "{{ satellite_urls }}"
